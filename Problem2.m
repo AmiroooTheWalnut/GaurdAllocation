@@ -2,6 +2,7 @@ clc
 clear
 isParallel=0;
 addpath('./TriangleRayIntersection')
+tic
 sizeTerrain=240;
 numCandidateGaurds=20;
 bestSolution=[];

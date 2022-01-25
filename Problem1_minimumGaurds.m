@@ -3,10 +3,10 @@ clear
 isParallel=0;
 addpath('./TriangleRayIntersection')
 tic
-sizeTerrain=300;
+sizeTerrain=200;
 numCandidateGaurds=20;
 bestSolution=[];
-height=80;
+height=60;
 %[terrainPoints,faces,vertices,X,Y]=generate2DTerrain(sizeTerrain);
 [terrainPoints,faces,vertices,X,Y]=generate2DStepTerrain(sizeTerrain);
 if isParallel==1
@@ -130,7 +130,7 @@ else
 end
 end
 
-function drawSolution(vertices,faces,X,Y,terrainPoints,bestSolution,gaurdCandidates,height,isParallel)
+function drawSolution(vertices,faces,X,Y,terrainPoints,bestSolution,candidateGaurds,height,isParallel)
 numGaurds=size(bestSolution,2);
 rawColors=hsv(numGaurds);
 colors = rawColors(randperm(size(rawColors, 1)),:);
@@ -138,7 +138,7 @@ colors = rawColors(randperm(size(rawColors, 1)),:);
 %bw(size(terrainPoints,1),size(terrainPoints,2))=0;
 %bw=logical(bw);
 for i=1:size(bestSolution,2)
-    orig=[gaurdCandidates(bestSolution(1,i)),1,height];
+    orig=[candidateGaurds(bestSolution(1,i)),1,height];
     [visibleFaces,visibleVerticesSizes] = calcVisibility(orig,vertices,faces,X,Y,terrainPoints,isParallel);
     generatedX=[];
     generatedY=[];
@@ -159,7 +159,7 @@ for i=1:size(bestSolution,2)
         end
     end
     scatter3(generatedX,generatedY,generatedZ+i,'MarkerEdgeColor',colors(i,:),'MarkerFaceColor',colors(i,:))
-    scatter3(gaurdCandidates(1,bestSolution(1,i)),1,height,'MarkerEdgeColor',colors(i,:),'MarkerFaceColor',colors(i,:))
+    scatter3(candidateGaurds(1,bestSolution(1,i)),1,height,'MarkerEdgeColor',colors(i,:),'MarkerFaceColor',colors(i,:))
 end
 end
 
