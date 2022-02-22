@@ -6,7 +6,7 @@ spz = interp2(X,Y,terrainPoints, orig(1,1),orig(1,2));
 if orig(1,3)>spz
     if isParallel==0
         for i=1:size(vertices,1)
-            dir   = [-orig(1,1)+vertices(i,1)+0.0001+(rand(1,1))*0.0001 -orig(1,2)+vertices(i,2)+0.0001+(rand(1,1))*0.0001 -orig(1,3)+vertices(i,3)+0.01];
+            dir   = [-orig(1,1)+vertices(i,1)+0.0001+(rand(1,1))*0.0001 -orig(1,2)+vertices(i,2)+0.0001+(rand(1,1))*0.0001 -orig(1,3)+vertices(i,3)+0.001];
             
             vert1 = vertices(faces(:,1),:);
             vert2 = vertices(faces(:,2),:);

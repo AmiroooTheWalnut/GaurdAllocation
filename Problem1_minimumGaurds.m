@@ -3,10 +3,10 @@ clear
 isParallel=0;
 addpath('./TriangleRayIntersection')
 tic
-sizeTerrain=200;
+sizeTerrain=400;
 numCandidateGaurds=20;
 bestSolution=[];
-height=60;
+height=80;
 %[terrainPoints,faces,vertices,X,Y]=generate2DTerrain(sizeTerrain);
 [terrainPoints,faces,vertices,X,Y]=generate2DStepTerrain(sizeTerrain);
 if isParallel==1
